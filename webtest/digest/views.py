@@ -7,16 +7,6 @@ from django.views import generic
 from .models import EnzymeList
 from .Digest import Digest
 
-# Create your views here.
-##enzymelist = models.enzymes()
-##enzyme_name = []
-##for i in enzymelist.enzyme:
-##    enzyme_name.append(i[0])
-##    
-##enzyme_id = list(range(len(enzyme_name)))
-##enzyme_list = zip(enzyme_name,enzyme_id)
-##digest = Digest(enzymelist.enzyme)
-
 def index(request):
     enzyme_list = EnzymeList.objects.using('digestdb').order_by('id')
     
@@ -51,7 +41,7 @@ def result(request):
     digest.selectenzyme(enzyme_selected_id)
     digest_result = digest.digest(seq)
 
-    #format
+    #output data format
     result_formatted = []
     result_count = []
     for i in digest_result:
