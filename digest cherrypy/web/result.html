@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:py="http://genshi.edgewall.org/">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/static/result.css" />
+<title>Result</title>
+</head>
+
+<body>
+<p id="ptitle">
+Result
+</p>
+
+<p id="p02">The sequence to investigate:</p>
+<p id="p01">Length:&nbsp;${length}aa</p>
+<br/>
+<div style="table-3" id="table-3">
+<table>
+<tr py:for = "bb in sequence">
+
+<td py:for = "cc in bb" align = "right" > ${cc} </td>
+</tr>
+
+
+</table>
+</div>
+<div style="table-4" id="table-4">
+<table>
+<tr>
+<td><h3><strong>Name</strong></h3></td>
+<td><h3><strong>No.</strong></h3></td>
+<td><h3><strong>Positions</strong></h3></td>
+</tr>
+<tr py:for = "aa in aaa">
+<td><strong>${aa[0]}:</strong></td>
+<td>${aa[2]}</td>
+<td>${aa[1]}</td>
+
+</tr>
+<br />
+
+<br />
+</table>
+</div>
+<a href="/">
+Back
+</a>
+</body>
+</html>

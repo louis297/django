@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:py="http://genshi.edgewall.org/">
+<head>
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Protein Digest</title>
+<link rel="stylesheet" type="text/css" href="{% static "digest/digest.css"%}" />
+<script src="{% static "digest/jquery.min.js" %}"></script>
+<script>
+$(function () {
+$("#selectall").click(function () {
+        $("#chkenzyme :checkbox").each(function () {
+            this.checked = true;
+			})
+		});
+$("#selectnone").click(function () {
+        $("#chkenzyme :checkbox").attr("checked", false);  
+    });  
+$("#selectinvert").click(function () {
+        $("#chkenzyme :checkbox").each(function () {
+            this.checked = !this.checked;
+         })
+	});
+});
+</script>
+</head>
+
+<body>
+<p id="ptitle"> Protein Digest </p>
+<form method="post" action="{% url 'digest:result' %}">
+{% csrf_token %}
+  <p id="form1">
+    <textarea id="sequence" name="sequence" onpropertychange="if(this.scrollHeight>6) this.style.posHeight=this.scrollHeight+3" onmouseover="this.focus();if(value==defaultValue) this.select();" onclick="if(value==defaultValue){value='';this.style.color='#778C79'}"          onBlur="if(!value){value=defaultValue;this.style.color='#778C79'}" >Please input a protein sequence in FASTA formation.</textarea>
+    <br />
+    <br />
+    <button id="selectall" type="button" class="btn">Select All</button>&nbsp;
+    <button id="selectnone" type="button" class="btn">Select None</button>&nbsp;
+    <button id="selectinvert" type="button" class="btn">Reverse</button>&nbsp;
+    <div>
+    <div class="list1">
+{% if enzyme_list %}
+    <ul id="chkenzyme">
+    {% for enzyme in enzyme_list %}
+        <li><input name="check{{enzyme.id}}" type="checkbox" value="{{enzyme.id}}" checked="true" class="checkbox1"/>
+    	<label class="list1_content">{{enzyme.name}}</label></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+    </div>
+    </div>
+       </p>
+    
+    
+    <input name="submit" type="submit" value="Submit" class="btn" />
+    
+
+
+  
+</form>
+
+</body>
+</html>

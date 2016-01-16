@@ -1,0 +1,9 @@
+{% if enzyme_list %}
+    <ul>
+    {% for enzyme in enzyme_list %}
+        <li>{{ enzyme.name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
