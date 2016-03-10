@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-##from .models import enzyme_list
+##from .models import EnzymeList
 ##
-##admin.site.register(enzyme_list)
+##admin.site.register(EnzymeList)

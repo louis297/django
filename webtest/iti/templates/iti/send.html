@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:py="http://genshi.edgewall.org/">
+<head>
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Send Money</title>
+<link rel="stylesheet" type="text/css" href="{% static "iti/send.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "iti/bootstrap.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "iti/headerandfooter.css"%}" />
+<script src="{% static "iti/jquery.min.js" %}"></script>
+<script src="{% static "iti/bootstrap.min.js" %}"></script>
+<script>
+function formreset() {
+    document.getElementById("sendform").reset();
+}
+</script>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    	<div class="header-content">
+        	<div class="navbar-brand">
+            	Send Money			
+            </div>
+        </div>
+    </div>
+</nav>
+<form method="post" action="{% url 'iti:success' %}" id="sendform">
+{% csrf_token %}
+  <div class="container">
+    <div class="mainframe">
+      <label for="email" class="email1 label">to:</label>
+      <input type="email" placeholder="Example: xxx@xxx" id="email" name="email" class="email1" required/>
+    </div>
+    <div class="mainframe">
+      <label for="amount" class="amount label" id="amount_label">Amount: $</label>
+      <input type="number" placeholder="1.00" id="amount" name="amount" class="amount" required/>
+
+      <select name="cashtype" class="cashtype" required>
+      {% for aa in currency %}
+      	<option value ="{{aa}}" id="{{aa}}">{{aa}}</option>
+      {% endfor %}
+      </select>
+    </div>
+    <div class="mainframe2">
+      <p>Message (optional):</p>
+      <textarea type="text" id="message" rows="2" name="message" class="text"></textarea>
+    </div>
+    <p class="text1">What's this payment for?</p>
+    <div class="mainframe3" required>
+      <label for="person" class="label1">I'm sending money to family and friends</label>
+      <input type="radio" name="reason" value="person" id="person" class="radio1" checked="checked"/>
+      <hr />
+      <label for="service" class="label2">I'm paying goods or services</label>
+      <input type="radio" name="reason" value="service" id="service"  class="radio2"/>
+    </div>
+  </div>
+
+
+<div id="footer" class="container">
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+    	<div class="navbar-inner navbar-content-center">
+        	<div class="container">
+        	<button type="button" class="btnclear" onclick="formreset()"> Clear </button>
+			<input type="submit" value="Next" class="btnnext" id="submit1" />
+            </div>
+        </div>
+    </nav>
+</div>
+</form>
+</body>
+</html>
+
+

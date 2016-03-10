@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:py="http://genshi.edgewall.org/">
+<head>
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Transaction History</title>
+<link rel="stylesheet" type="text/css" href="{% static "iti/history.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "iti/bootstrap.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "iti/headerandfooter.css"%}" />
+<script src="{% static "iti/jquery.min.js" %}"></script>
+<script src="{% static "iti/bootstrap.min.js" %}"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    	<div class="header-content">
+        	<div class="navbar-brand">
+            	Transaction History			
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+	<table class="table1">
+    	<tr class="tr1">
+			<th class="th1"><h3><strong>Time</strong></h3></th>
+			<th class="th2"><h3><strong>To</strong></h3></th>
+			<th class="th3"><h3><strong>Amount</strong></h3></th>
+		</tr>
+        {% for aa in trans%}
+        
+        <tr class="tr2">
+        	
+        	<td class="td1"><a href="/iti/history/{{aa.3}}">{{aa.0}}</a></td>
+			<td class="td2"><a href="/iti/history/{{aa.3}}">{{aa.1}}</a></td>
+			<td class="td3"><a href="/iti/history/{{aa.3}}">{{aa.2}}</a></td> 
+                   	
+        </tr>
+        
+        {% endfor %}
+    </table>
+</div>
+
+<div id="footer" class="container">
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+    	<div class="navbar-inner navbar-content-center">
+        	<div class="container">
+        	<button type="button" class="btnback" onclick="{location.href='/iti'}"> Back </button>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
+
+

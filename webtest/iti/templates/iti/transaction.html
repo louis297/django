@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:py="http://genshi.edgewall.org/">
+<head>
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Transaction to {{email}}</title>
+<link rel="stylesheet" type="text/css" href="{% static "iti/transaction.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "iti/bootstrap.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "iti/headerandfooter.css"%}" />
+<script src="{% static "iti/jquery.min.js" %}"></script>
+<script src="{% static "iti/bootstrap.min.js" %}"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    	<div class="header-content">
+        	<div class="navbar-brand">
+            	Transaction to {{email}}			
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+	<p class="success"> You have sent {{amount}} to {{email}} on {{date}}.</p>
+    <button type="button" onclick="{location.href='/iti/del/{{trans_id}}'}" class="btndel">Delete</button>
+</div>
+
+<div id="footer" class="container">
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+    	<div class="navbar-inner navbar-content-center">
+        	<div class="container">
+        	<button type="button" class="btnback" onclick="history.back()"> Back </button>
+			<button type="button" class="btnhome" onclick="{location.href='/iti'}"> Home </button>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
+
+

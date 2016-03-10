@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:py="http://genshi.edgewall.org/">
+<head>
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Success</title>
+<link rel="stylesheet" type="text/css" href="{% static "iti/success.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "iti/bootstrap.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "iti/headerandfooter.css"%}" />
+<script src="{% static "iti/jquery.min.js" %}"></script>
+<script src="{% static "iti/bootstrap.min.js" %}"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    	<div class="header-content">
+        	<div class="navbar-brand">
+            	Send Money			
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+	<p class="success"> You have sent {{amount}} to {{email}}.
+</div>
+
+<div id="footer" class="container">
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+    	<div class="navbar-inner navbar-content-center">
+        	<div class="container">
+        	<button type="button" class="btnsend" onclick="{location.href='send'}"> Send Money </button>
+			<button type="button" class="btnhistory" onclick="{location.href='history'}"> Transaction History </button>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
+
+
