@@ -65,7 +65,7 @@ def transaction(request, pk):
     trans = get_object_or_404(Transaction, trans_id=pk)
     template = loader.get_template('iti/transaction.html')
     context = {}
-    t=currency_symbol[i.cashtype] 
+    t=currency_symbol[trans.cashtype] 
     context['amount'] = t+trans.amount
     context['email'] = trans.email
     context['date'] = trans.time
