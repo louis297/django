@@ -36,9 +36,9 @@ function formreset() {
     </div>
     <div class="mainframe">
       <label for="amount" class="amount label" id="amount_label">Amount: $</label>
-      <input type="number" placeholder="1.00" id="amount" name="amount" class="amount" required/>
+      <input type="number" placeholder="0.00" id="amount" name="amount" class="amount" required/>
 
-      <select name="cashtype" class="cashtype" required>
+      <select name="cashtype" class="cashtype" id="currency" required>
       {% for aa in currency %}
       	<option value ="{{aa}}" id="{{aa}}">{{aa}}</option>
       {% endfor %}
@@ -70,6 +70,7 @@ function formreset() {
     </nav>
 </div>
 </form>
+<script src="{% static "iti/send.js" %}"></script>
 </body>
 </html>
 

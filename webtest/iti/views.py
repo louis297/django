@@ -23,7 +23,9 @@ def index(request):
 
 def send(request):
     template = loader.get_template('iti/send.html')
-    context = {'currency': currency_symbol.keys()}
+    currency_list = currency_symbol.keys()
+    currency_list.sort(reverse=True)
+    context = {'currency': currency_list}
     return HttpResponse(template.render(context, request))
 
 def success(request):
