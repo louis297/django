@@ -70,7 +70,7 @@ def transaction(request, pk):
     context['email'] = trans.email
     context['date'] = trans.time
     context['trans_id'] = pk
-    print(trans.time)
+    print trans.time
     return HttpResponse(template.render(context, request))
 
 def del_trans(request, pk):

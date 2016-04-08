@@ -1,0 +1,23 @@
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.template import loader
+from django.core.urlresolvers import reverse
+from django.views import generic
+
+from openpyxl import load_workbook
+
+def index(request):
+    #loading .xlsx file
+    #parsing data
+    f = "ipegtest/utto.xlsx"
+    wb = load_workbook(filename = f)
+    sheet_input = wb['inputs']
+    
+
+
+    #loading template and construct page
+    template = loader.get_template('ipegtest/index.html')
+
+    context = {
+    }
+    return HttpResponse(template.render(context, request))

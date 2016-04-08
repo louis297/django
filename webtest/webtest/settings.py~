@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'rest.apps.RestConfig',
     'polls.apps.PollsConfig',
     'digest.apps.DigestConfig',
-    'ipeg.apps.IpegConfig',
     'iti.apps.ItiConfig',
     'django.contrib.admin',
     'django.contrib.auth',

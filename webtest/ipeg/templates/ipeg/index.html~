@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>UTTO ROI</title>
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "ipeg/main.css"%}">
+    <link rel="stylesheet" type="text/css" href="{% static "ipeg/bootstrap-superhero.min.css"%}">
+    <link rel="stylesheet" type="text/css" href="{% static "ipeg/style.css"%}">
+</head>
+<body>
+Hello highcharts.
+<script src="{% static "ipeg/highcharts.js"%}"></script>
+
+</body></html>

@@ -62,7 +62,7 @@ def result(request):
         sequence = "Please input a protein sequence in text or FASTA formation."
         self.output = []
         seq_len = " N/A "
-    print(sequence)
+    print sequence
     #load template and output the page
     template = loader.get_template('digest/result.html')
     context = {

@@ -21,7 +21,6 @@ urlpatterns = [
     url(r'^digest/', include('digest.urls')),
     url(r'^polls/', include('polls.urls')),
     url(r'^iti/', include('iti.urls')),
-    url(r'^ipeg/', include('ipeg.urls')),
     url(r'^admin/', admin.site.urls),
 ]
 
