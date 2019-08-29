@@ -1,0 +1,7 @@
+*.sql
+*.sqlite3
+
+.idea/*
+test.py
+t
+

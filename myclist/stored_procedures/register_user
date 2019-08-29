@@ -1,0 +1,25 @@
+USE `myshop`;
+DROP procedure IF EXISTS `register_user`;
+
+DELIMITER $$
+USE `myshop`$$
+CREATE PROCEDURE `register_user` (
+	in uname char(45), 
+    in pass char, 
+    in enc_v int, 
+    in pass_iter int, 
+    in saltv char, 
+    in em char,
+    out res char)
+BEGIN
+	set @cnt = (select count(*) from users where username = uname or email = em);
+    if @cnt = 0 then
+		insert into users (username, `password`, encrypt_version, password_iteration, salt, email)
+        value(uname, pass, enc_v, pass_iter, saltv, em);
+        set res = 'OK';
+    else 
+		set res = 'Fail';
+    end if;
+END$$
+
+DELIMITER ;
