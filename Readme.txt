@@ -6,3 +6,7 @@ Right now there are:
 	digest for python course project (transplant to Django from CherryPy)
 /digest cherrypy:
 	original digest project with CherryPy and Genshi
+/myclist:
+	a self-copy site of craigslist
+	for practicing django related skills
+	currently using MySQL DB with django model
